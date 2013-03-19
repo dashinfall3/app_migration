@@ -42,8 +42,8 @@ describe "main feature", :js => true do
 
   context "go to old article url" do
     it "should go to new article url" do
-      expect(:get => "/month/day/year/#{article.title}").
-            to route_to(:controller => "article", :action => "show", :id => article.title)
+      visit "/articles/month/day/year/#{article.title}"
+      current_path.should eq("/catogories/#{article.category.name}/articles/#{article.title}")
     end
   end
 
